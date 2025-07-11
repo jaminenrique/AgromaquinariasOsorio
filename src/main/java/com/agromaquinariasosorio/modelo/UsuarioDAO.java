@@ -7,8 +7,8 @@ import java.sql.SQLException;
 
 public class UsuarioDAO extends Conexion {
 
-  public boolean registrarUsuario(String nombre, String correo, String contrasena, boolean verificado) throws Exception {
-    String sql = "INSERT INTO Usuario (nombre, correo, contrasena, verificado) VALUES (?, ?, ?, ?)";
+  public boolean registrarUsuario(String nombre, String correo, String contrasena, boolean verificado, String codigoVerificacion, Integer id_Rol) throws Exception {
+    String sql = "INSERT INTO Usuario (nombre, correo, contrasena, verificado, codigo_verificacion, id_rol) VALUES (?, ?, ?, ?, ?, ?)";
 
     try {
       this.conectar(false);
@@ -17,6 +17,8 @@ public class UsuarioDAO extends Conexion {
         stmt.setString(2, correo);
         stmt.setString(3, contrasena);  // Guarda la contraseña hasheada
         stmt.setBoolean(4, verificado);  // false porque aún no está verificado
+        stmt.setString(5, codigoVerificacion); // <-- Agregar el código de verificación
+        stmt.setInt(6, id_Rol);
         int filasAfectadas = stmt.executeUpdate();
 
         return filasAfectadas > 0; // Si se insertaron filas, el registro fue exitoso
@@ -35,11 +37,11 @@ public class UsuarioDAO extends Conexion {
   public Usuario verificarUsuarioCorreo(String correo) throws Exception {
     Usuario usu = null;
     ResultSet rs;
-    String sql = "SELECT id_usuario, nombre, correo, contrasena, verificado FROM Usuario WHERE correo = ?";  // Consultamos por correo
+    String sql = "SELECT id_usuario, nombre, correo, contrasena, verificado, codigo_verificacion, id_Rol FROM Usuario WHERE correo = ?";  // Consultamos por correo
 
     try {
       this.conectar(false);  // Conexión a la base de datos
-      try (PreparedStatement stmt = this.getConnection().prepareStatement(sql)) {
+      try (PreparedStatement stmt = this.getConnection().prepareStatement(sql)) { 
         stmt.setString(1, correo);  // Establecemos el correo en la consulta
         rs = stmt.executeQuery();  // Ejecutamos la consulta
 
@@ -50,6 +52,8 @@ public class UsuarioDAO extends Conexion {
           usu.setCorreo(rs.getString("correo"));
           usu.setContrasena(rs.getString("contrasena"));
           usu.setVerificado(rs.getBoolean("verificado"));  // Obtén el valor de la columna "verificado"
+          usu.setCodigoVerificacion(rs.getString("codigo_verificacion"));
+          
         }
       }
     } catch (Exception e) {

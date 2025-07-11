@@ -16,7 +16,8 @@ document.getElementById('formLogin').addEventListener('submit', (e) => {
   const usuario = {
     nombre: null,
     correo: correo,
-    contrasena: clave
+    contrasena: clave,
+    rol: {id_rol: 2}
   };
   $.ajax({
     url: "srvUsuario?accion=iniciarSesion",
@@ -76,7 +77,8 @@ if (document.getElementById('btnRegistro')) {
     const usuario = {
       nombre: nombre,
       correo: correo,
-      contrasena: clave
+      contrasena: clave,
+      rol: {id_rol: 2}
     };
 
     $.ajax({

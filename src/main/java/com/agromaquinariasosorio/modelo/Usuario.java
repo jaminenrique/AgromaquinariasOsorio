@@ -10,51 +10,68 @@ package com.agromaquinariasosorio.modelo;
  */
 public class Usuario {
 
-    private Integer idUsuario;
-    private String nombre;
-    private String correo;
-    private String contrasena;
-    private boolean verificado;
-    
+  private Integer idUsuario;
+  private String nombre;
+  private String correo;
+  private String contrasena;
+  private boolean verificado;
+  private String codigoVerificacion;
+  private Rol rol;
 
-    public Integer getIdUsuario() {
-        return idUsuario;
-    }
+  public Integer getIdUsuario() {
+    return idUsuario;
+  }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+  public void setIdUsuario(Integer idUsuario) {
+    this.idUsuario = idUsuario;
+  }
 
-    public String getNombre() {
-        return nombre;
-    }
+  public String getNombre() {
+    return nombre;
+  }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
 
-    public String getCorreo() {
-        return correo;
-    }
+  public String getCorreo() {
+    return correo;
+  }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
+  public void setCorreo(String correo) {
+    this.correo = correo;
+  }
 
-    public String getContrasena() {
-        return contrasena;
-    }
+  public String getContrasena() {
+    return contrasena;
+  }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
+  public void setContrasena(String contrasena) {
+    this.contrasena = contrasena;
+  }
 
-    public boolean isVerificado() {
-        return verificado;
-    }
+  public boolean isVerificado() {
+    return verificado;
+  }
 
-    public void setVerificado(boolean verificado) {
-        this.verificado = verificado;
-    }
+  public void setVerificado(boolean verificado) {
+    this.verificado = verificado;
+  }
+
+  public String getCodigoVerificacion() {
+    return codigoVerificacion;
+  }
+
+  public void setCodigoVerificacion(String codigoVerificacion) {
+    this.codigoVerificacion = codigoVerificacion;
+  }
+
+  public Rol getRol() {
+    return rol;
+  }
+
+  public void setRol(Rol rol) {
+    this.rol = rol;
+  }
 
 }

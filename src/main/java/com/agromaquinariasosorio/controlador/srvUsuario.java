@@ -119,11 +119,11 @@ public class srvUsuario extends HttpServlet {
         }
         // Hashear la contraseña antes de almacenarla en la base de datos
         final String contrasenaHash = BCrypt.hashpw(usu.getContrasena(), BCrypt.gensalt());
+        // Si todo es correcto, generar el código de verificación
+        final String codigoVerificacion = String.format("%06d", new Random().nextInt(999999));
         // Guardar el usuario en la base de datos (incluyendo un campo 'verificado' como 'false')
-        boolean exito = dao.registrarUsuario(usu.getNombre(), usu.getCorreo(), contrasenaHash, false); // false para verificado
+        boolean exito = dao.registrarUsuario(usu.getNombre(), usu.getCorreo(), contrasenaHash, false, codigoVerificacion, usu.getRol().getId_rol()); // false para verificado
         if (exito) {
-          // Si todo es correcto, generar el código de verificación
-          String codigoVerificacion = String.format("%06d", new Random().nextInt(999999));
           // Enviar el código de verificación por correo
           CorreoUtils.sentEmail(usu.getCorreo(), "Código de verificación", "Tu código es: " + codigoVerificacion);
           // Aquí podrías almacenar el código de verificación en la base de datos
@@ -199,4 +199,4 @@ public class srvUsuario extends HttpServlet {
       AgromaquinariasUtils.printMessage("Faltan parámetros", false, response);
     }
   }
-} 
+}
