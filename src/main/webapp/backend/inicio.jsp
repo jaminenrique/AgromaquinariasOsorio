@@ -1,4 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true" %>
+<%
+  if (request.getSession().getAttribute("usuario") != null) {
+%>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -74,4 +78,8 @@
     <script src="../dist/js/adminlte.min.js"></script>
   </body>
 </html>
-
+<%
+  } else {
+    response.sendRedirect("../backend/login.jsp");
+  }
+%>

@@ -161,6 +161,7 @@ public class srvUsuario extends HttpServlet {
           if (!BCrypt.checkpw(usuario.getContrasena(), usu.getContrasena())) {
             AgromaquinariasUtils.printMessage("Credenciales incorrectas", false, response);
           } else {
+            request.getSession().setAttribute("usuario", usu);
             String json = gson.toJson(usu);
             out.print(json);
           }

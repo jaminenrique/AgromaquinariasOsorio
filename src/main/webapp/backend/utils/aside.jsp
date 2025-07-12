@@ -13,7 +13,7 @@
         <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Jamin Enrique</a>
+        <a href="#" class="d-block">${usuario.nombre}</a>
       </div>
     </div>
 
@@ -50,7 +50,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="../backend/productos.jsp" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Productos</p>
               </a>
