@@ -43,20 +43,23 @@
                 <img src="img/logo-sinfondo.png" style="width: 125px; height: auto;">
               </a>
             </div>
+            
+            <%
+              Object usuario = session.getAttribute("usuario");
+              Object admin = session.getAttribute("admin");
+              if (usuario != null || admin != null) {
+            %>
             <button class="rounded-warning-button" id="openModalButton">
               <span>Cuenta no verificada</span>
             </button>
+            <%
+              }
+            %>
+            
             <nav class="hm-menu">
               <ul>
-                <li class="dropdown" id="dropdown-productos">
-                  <span class="dropdown-toggle">Productos</span>
-                  <div class="dropdown-content">
-                    <a href="productos/cortadoras.html">Cortadoras</a>
-                    <a href="productos/motosierras.html">Motosierras</a>
-                    <a href="productos/atomizadores.html">Atomizadores</a>
-                    <a href="productos/hidrolavadoras.html">Hidrolavadoras</a>
-                    <a href="productos/accesorios.html">Accesorios</a>
-                  </div>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="backend/login.jsp">Iniciar Sesión Admin</a>
                 </li>
               </ul>
               <div class="hm-icon-cart">

@@ -12,6 +12,19 @@
           <a href="../index2.html" class="h1"><b>Agromaquinarias</b>Osorio</a>
         </div>
         <div class="card-body">
+
+          <!-- Aquí comienza la modificación -->
+          <%
+            // Verificar si el parámetro "message" existe en la URL y contiene el valor "sessionClosed"
+            String message = request.getParameter("message");
+            if ("sessionClosed".equals(message)) {
+          %>
+          <div class="alert alert-success">
+            Has cerrado sesión exitosamente.
+          </div>
+          <% }%>
+          <!-- Fin de la modificación -->
+          
           <p class="login-box-msg">Ingresa tus credenciales</p>
 
           <form id="frmLogin">

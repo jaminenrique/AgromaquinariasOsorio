@@ -29,7 +29,7 @@
               </div><!-- /.col -->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Página Principal</a></li>
+                  <li class="breadcrumb-item"><a href="inicio.jsp">Página Principal</a></li>
                   <li class="breadcrumb-item active">Productos</li>
                 </ol>
               </div><!-- /.col -->
@@ -48,7 +48,9 @@
                     <h3 class="card-title"> Registrar Productos</h3>
                   </div>
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-info"> Nuevo Registro </button>
+                    <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modalRegistrarProducto">
+                      Nuevo Registro
+                    </button>
                   </div>
                 </div>
               </div>

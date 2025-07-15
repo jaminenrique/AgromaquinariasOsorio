@@ -2,7 +2,7 @@
   <!-- Brand Logo -->
   <a href="index3.html" class="brand-link">
     <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <span class="brand-text font-weight-light">Agromaquinarias Osorio Admin</span>
   </a>
 
   <!-- Sidebar -->
@@ -35,7 +35,7 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class="nav-item menu-open">
-          <a href="#" class="nav-link active">
+          <a href="#" class="nav-link <% if (request.getRequestURI().contains("inicio.jsp")) { %>active<% } %>"> <!-- CAMBIO AQUI -->
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Página Principal
@@ -44,21 +44,35 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#" class="nav-link active">
+              <a href="inicio.jsp" class="nav-link <% if (request.getRequestURI().contains("inicio.jsp")) { %>active<% } %>"> <!-- CAMBIO AQUI -->
                 <i class="far fa-circle nav-icon"></i>
                 <p>Inicio</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="../backend/productos.jsp" class="nav-link">
+              <a href="../backend/productos.jsp" class="nav-link <% if (request.getRequestURI().contains("productos.jsp")) { %>active<% } %>"> <!-- CAMBIO AQUI -->
                 <i class="far fa-circle nav-icon"></i>
                 <p>Productos</p>
               </a>
             </li> 
+            <!-- Agregar opción para Ventas -->
+            <li class="nav-item">
+              <a href="../backend/ventas.jsp" class="nav-link <% if (request.getRequestURI().contains("ventas.jsp")) { %>active<% } %>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Ventas</p>
+              </a>
+            </li>
+            <!-- Agregar opción para Usuarios -->
+            <li class="nav-item">
+              <a href="../backend/usuarios.jsp" class="nav-link <% if (request.getRequestURI().contains("usuarios.jsp")) { %>active<% } %>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Usuarios</p>
+              </a>
+            </li>
           </ul>
         </li>
         <li class="nav-item">
-          <a href="../index.jsp" class="nav-link">
+          <a href="../index.jsp" class="nav-link <% if (request.getRequestURI().contains("index.jsp")) { %>active<% }%>"> <!-- CAMBIO AQUI -->
             <i class="nav-icon fas fa-th"></i>
             <p>
               Ir a la Tienda
@@ -66,6 +80,16 @@
             </p>
           </a>
         </li>
+
+        <!-- Cerrar Sesión -->
+        <li class="nav-item">
+          <a href="logout.jsp" class="nav-link">
+            <i class="nav-icon fas fa-sign-out-alt"></i>
+            <p>Cerrar Sesión</p>
+          </a>
+        </li>
+
+        
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
